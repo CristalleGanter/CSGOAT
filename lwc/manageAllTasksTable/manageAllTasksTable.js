@@ -30,14 +30,12 @@ export default class ManageAllTasksTable extends LightningElement {
         //console.log('save payload',JSON.stringify(eventPayload));
 
         this.dispatchEvent(saveDaysEvent);
-//not currently  working
-      /*  this.dispatchEvent(new ShowToastEvent({
+
+        this.dispatchEvent(new ShowToastEvent({
             title: 'Value Saved',
             message: 'Days value has been saved',
             variant: {label: 'success', value: 'success' },
         }));
-        
-*/
         
     }
 
