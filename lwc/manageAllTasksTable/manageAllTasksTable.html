@@ -1,0 +1,33 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div class="slds-modal__header">
+        <h1 class="slds-modal__title slds-hyphenate slds-text-heading--medium" >Assign Tasks</h1>
+    </div>
+        <lightning-card>
+            <div class = "slds-p-left_small">
+                <div class="slds-scrollable" style="height:20rem">
+                    <lightning-datatable class="slds-table_bordered slds-table_striped"  
+                    columns={columns} 
+                    key-field="Id"
+                    onrowselection={handleRowSelection}
+                    draft-values={draftValues}
+                    onsave={handleSave}
+                    
+                    data={tasks}></lightning-datatable>
+                <!--  suppress-bottom-bar -->
+                </div>
+            </div> 
+    </lightning-card>
+
+<div class="slds-modal__footer slds-align_absolute-center">
+    <div class="slds-p-left_x-small"></div>
+    <lightning-button label = "Assign Tasks" 
+        onclick={assignSelectedTasks}>
+    </lightning-button>
+    <lightning-button label="Cancel" 
+        alternative-text = "Close" 
+        onclick={handleCloseModal}>
+    </lightning-button>
+    <div class="slds-p-right_x-small"></div>
+   </div>
+</template>
