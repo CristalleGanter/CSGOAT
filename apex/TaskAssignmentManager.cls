@@ -5,7 +5,6 @@ public with sharing class TaskAssignmentManager {
         List<Program_Task__c> progTaskIds = [SELECT Id, Training_Task__c, Training_Task__r.Name 
                                                 FROM Program_Task__c 
                                                 WHERE Training_Program__c = :someProgram];
-        
         List<Training_Task__c> trainingTasks = new List<Training_Task__c>();
         for (Program_Task__c pt : progTaskIds){
             Training_Task__c tempTask = new Training_Task__c(
@@ -15,7 +14,6 @@ public with sharing class TaskAssignmentManager {
 
             trainingTasks.add(tempTask);
         }
-
         return trainingTasks;
     }
 
@@ -54,7 +52,4 @@ public with sharing class TaskAssignmentManager {
                 createTaskAssignments(trainingTasks, assigns);
         }
     }
-
-
 }
-    
