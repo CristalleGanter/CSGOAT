@@ -5,6 +5,16 @@
     </div>
         <lightning-card>
             <div class = "slds-p-left_small">
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-input type="text"
+                                      label="Task Search"
+                                      onchange={handleInputChange}
+                                      onkeypress={handleSearchButton}></lightning-input>
+                    <div class="slds-p-top_small">
+                      <lightning-button label="Search"
+                                        onclick={handleSearchClick}
+                                        variant="brand"></lightning-button>
+                    </div></div>
                 <div class="slds-scrollable" style="height:20rem">
                     <lightning-datatable class="slds-table_bordered slds-table_striped"  
                     columns={columns} 
@@ -12,7 +22,6 @@
                     onrowselection={handleRowSelection}
                     draft-values={draftValues}
                     onsave={handleSave}
-                    
                     data={tasks}></lightning-datatable>
                 <!--  suppress-bottom-bar -->
                 </div>
@@ -22,12 +31,10 @@
 <div class="slds-modal__footer slds-align_absolute-center">
     <div class="slds-p-left_x-small"></div>
     <lightning-button label = "Assign Tasks" 
-        onclick={assignSelectedTasks}>
+    variant="success"
+    onclick={assignSelectedTasks}>
     </lightning-button>
-    <lightning-button label="Cancel" 
-        alternative-text = "Close" 
-        onclick={handleCloseModal}>
-    </lightning-button>
+    
     <div class="slds-p-right_x-small"></div>
    </div>
 </template>
