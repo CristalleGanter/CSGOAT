@@ -1,4 +1,4 @@
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import GET_CASES from '@salesforce/apex/caseViewerController.getCases';
 
 const columns = [
@@ -13,6 +13,7 @@ export default class CaseViewer extends LightningElement {
     @api recordId;
     columns = columns;
     caseRecords;
+    @track hasCases = false;
 
     connectedCallback(){
         this.getCases();
@@ -23,6 +24,9 @@ export default class CaseViewer extends LightningElement {
         GET_CASES({relatedAccountId: this.recordId})
         .then(result => {
             this.caseRecords = result;
+            if (this.caseRecords.length > 0 ){
+                this.hasCases = true;
+            }
             console.log('these are the case records: '+ this.caseRecords);
         }) 
         .catch(error => {
