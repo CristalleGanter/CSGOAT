@@ -26,7 +26,7 @@ export default class CaseViewer extends LightningElement {
             console.log('these are the case records: '+ this.caseRecords);
         }) 
         .catch(error => {
-            console.log('Error during getCases: '+ error.body.message + 'record id: '+ this.recordId);
+            console.log('Error during getCases: '+ error.body.message);
         })
     }
 
