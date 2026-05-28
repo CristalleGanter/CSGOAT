@@ -13,7 +13,7 @@ export default class CaseViewer extends LightningElement {
     @api recordId;
     columns = columns;
     caseRecords;
-    @track hasCases = false;
+    hasCases = false;
 
     connectedCallback(){
         this.getCases();
