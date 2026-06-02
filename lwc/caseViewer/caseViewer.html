@@ -1,16 +1,25 @@
 <template>
-    <template lwc:if = {hasCases}>
-    <lightning-card>
-        <div class="slds-m-around_small">
-            <div style="height: 300px;">
-        <lightning-datatable
-                key-field="id"
-                data={caseRecords}
-                columns={columns}>
-        </lightning-datatable>
-    </div>
-        </div>
-        
-    </lightning-card>
+    <template lwc:if = {hasCases}> 
+        <lightning-card>
+            <div class="slds-m-around_small">
+                <h1>Open Cases on Account</h1>
+                    <div style="height: 300px;">
+                        <lightning-datatable
+                            key-field="id"
+                            data={wiredCases}
+                            columns={columns}
+                            onrowselection={handleRowSelection}>
+       
+                        </lightning-datatable>
+                    </div>
+                        <div class="slds-p-top_medium">
+                        <div class="slds-p-bottom_medium">
+                            <lightning-button label="Close Cases"
+                             variant="brand"
+                             onclick = {handleCloseCases}></lightning-button>
+                        </div>
+                        </div>
+            </div>
+        </lightning-card>
         </template>
 </template>
